@@ -24,7 +24,6 @@ save_matrix_time=15#second
 
 #sigmoids
 VAL_AVAIL=True
-SER_AVAIL=False
 SND_AVAIL=False #whether send queue is avaliable
 SNDING=False
 KEY_AVAIL=False
@@ -55,17 +54,6 @@ class NN1(threading.Thread):
     #print "pi=%d"%(pi)
     #print "NN.main()"
 
-class monitD(threading.Thread):
-  #monit Serial data
-  def __init__(self):
-    threading.Thread.__init__(self)
-  def run(self):
-    global pi
-    pi=pi+1
-    monitDf()
-    #print "pi=%d"%(pi)
-    #print "monitDf.main()"
-
 class monitK(threading.Thread):
   #monit Keyboard
   def __init__(self):
@@ -83,22 +71,16 @@ def main():
   pi=0
   thread1=start1()
   thread2=NN1()
-  thread3=monitD()
-  thread4=monitK()
+  thread3=monitK()
   thread1.start()
   thread2.start()
   thread3.start()
-  thread4.start()
   #time.sleep(10)
-
-def monitDf():
-  #if Serial.avaliable==True:
-    SER_AVAIL=True
 
 def monitKf():
   global data_input
   print "type quit to quit"
-  while data_input != "quit" and pi == 4:
+  while data_input != "quit" and pi == 3:
   #i = 0
   #for i in range (3):  
     try:

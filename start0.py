@@ -2,9 +2,9 @@
 #a function calcspd is added,to calculate body speed v[3] from EP[4] or ET[4]
 #a saveoff function is added
 import time
-def max 50
-def sx 13#variables in a sample
-def sy 5 #number of samples
+max=50
+sx=13#variables in a sample
+sy=5 #number of samples
 # Variables might be used and can be added if needed
 ET[4]=0 #body status from arduino
 EP[4]=0
@@ -39,7 +39,7 @@ def main():
       judgeK()
       #judge command from keyboard
       #import data_inpot[MAX]
-    if SER_AVAIL:
+    if Serial.avaliable():
       judgeD()
       #judge command from arduino
       #Serial is not read out yet
@@ -145,6 +145,3 @@ def judgeD():
 def calcspd():
 #calculate body speed v[3] from EP[4] or ET[4]
 
-
-if '__name__' == '__main__'
-  try main;
